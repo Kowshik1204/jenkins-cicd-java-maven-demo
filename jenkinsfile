@@ -2,7 +2,7 @@ def tomcatServerUrl = "http://172.31.14.95"
 pipeline {
   agent {
     node {
-      label 'jenkins-slave'
+      label 'jenkins'
     }
   }
 
@@ -22,13 +22,13 @@ pipeline {
       }
 
     }
-    stage('Deploy') {
-      steps {
+    //stage('Deploy') {
+      //steps {
         //deploy war on tomcat server
-        deploy adapters: [tomcat8(url: "${tomcatServerUrl}",
-            credentialsId: 'tomcat-credentials')],
-          war: 'target/*.war',
-          contextPath: 'pipeline-app'
+        //deploy adapters: [tomcat8(url: "${tomcatServerUrl}",
+            //credentialsId: 'tomcat-credentials')],
+          //war: 'target/*.war',
+          //contextPath: 'pipeline-app'
 
       }
     }
